@@ -22,6 +22,10 @@
           <td><%= flight.flightNo %></td>
           <td><%= flight.airport %></td>
           <td><%= flight.departs %></td>
+          <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
+
+          <td><%= flight.nowShowing ? 'Yes' : 'Nope' %></td>
+          </tr>
           <%# finish the ternary expression to display 'Yes' or 'Nope' %> 
 
        <% }) %>

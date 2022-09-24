@@ -21,20 +21,32 @@ function index(req, res) {
 }
 
 function create(req, res) {
-   // convert nowShowing's checkbox of nothing or "on" to boolean
-  req.body.nowShowing = !!req.body.nowShowing
-
-  // replace and split if it's not an empty string
+ 
+ // replace and split if it's not an empty string
   if (req.body.departs) {
 		// remove whitespace next to commas
-    req.body.departs = req.body.departs.split(', ')
+    req.body.departs = req.body.departs
   }
   Flight.create(req.body)
   .then(flight => {
-    res.redirect(`/flights/new`)
+    res.redirect(`/flights`)
   })
   .catch(err => {
-    res.redirect('/flights/new')
+    res.redirect('/flights')
+  })
+}
+
+function show(req, res) {
+  Flight.findById(req.params.id)
+  .then(flight => {
+    res.render('flights/show', { 
+      title: 'Flight Detail', 
+      flight: flight,
+    })    
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
   })
 }
 
@@ -42,5 +54,6 @@ function create(req, res) {
 export {
   newFlight as new,
   index,
-  create
+  create,
+  show
 }
