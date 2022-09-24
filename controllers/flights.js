@@ -21,12 +21,13 @@ function index(req, res) {
 }
 
 function create(req, res) {
-  // convert nowShowing's checkbox of nothing or "on" to boolean
+   // convert nowShowing's checkbox of nothing or "on" to boolean
   req.body.nowShowing = !!req.body.nowShowing
+
   // replace and split if it's not an empty string
-  if (req.body.cast) {
+  if (req.body.departs) {
 		// remove whitespace next to commas
-    req.body.cast = req.body.cast.split(', ')
+    req.body.departs = req.body.departs.split(', ')
   }
   Flight.create(req.body)
   .then(flight => {
