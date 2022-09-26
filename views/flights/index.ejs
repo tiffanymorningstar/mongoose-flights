@@ -24,7 +24,12 @@
           <td><%= flight.departs %></td>
           <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
 
-          <td><%= flight.nowShowing ? 'Yes' : 'Nope' %></td>
+          <td>
+            <form action="/flights/<%= flight._id %>?_method=DELETE" method="POST">
+              <button>X</button>
+            </form>
+          </td>
+
           </tr>
           <%# finish the ternary expression to display 'Yes' or 'Nope' %> 
 

@@ -4,6 +4,14 @@
 
 <main>
   <h1><%= title %></h1>
+
+  <div>
+    <%= flight.title %> 
+    <a href="/flights/<%= flight._id %>/edit">
+      <button>Edit Flight</button>
+    </a>
+  </div>
+  
   <section>
     <div>Airline: </div>
     <div><%= flight.airline %></div>
