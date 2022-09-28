@@ -30,6 +30,7 @@ const flightSchema = new Schema({
     type: Date, required: true
   },
   tickets: [ticketSchema],
+  cast: [{type: Schema.Types.ObjectId, ref: 'Meal' }]
 })
 
 const Flight = mongoose.model('Flight', flightSchema)
