@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 // optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema
-	
+
 const ticketSchema = new Schema({
   seat: {
     type: String,
@@ -10,13 +10,13 @@ const ticketSchema = new Schema({
   },
   price: {
     type: Number, min: 0
-  }, 
+  },
 })
 
 
 const flightSchema = new Schema({
   airline: {
-    type: String, 
+    type: String,
 
     enum: ['Delta', 'TWA', 'Spirit']
   },
@@ -30,7 +30,7 @@ const flightSchema = new Schema({
     type: Date, required: true
   },
   tickets: [ticketSchema],
-  meals: [{type: Schema.Types.ObjectId, ref: 'Meal' }]
+  meals: [{ type: Schema.Types.ObjectId, ref: 'Meal' }]
 })
 
 const Flight = mongoose.model('Flight', flightSchema)

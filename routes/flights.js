@@ -14,6 +14,8 @@ router.post('/', flightsCtrl.create)
 // POST /movies/:id/reviews
 router.post('/:id/tickets', flightsCtrl.createTicket)
 
+router.post('/:id/meals', flightsCtrl.addToMenu)
+
 router.get('/:id', flightsCtrl.show)
 
 // localhost:3000/movies/:id/edit
