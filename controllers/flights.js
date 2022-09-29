@@ -6,7 +6,6 @@ function newFlight(req, res) {
     title: 'Add Flight'
   })
 }
-
 function index(req, res) {
   Flight.find({})
     .then(flights => {
@@ -20,7 +19,6 @@ function index(req, res) {
       res.redirect('/')
     })
 }
-
 function create(req, res) {
 
   // replace and split if it's not an empty string
@@ -36,7 +34,6 @@ function create(req, res) {
       res.redirect('/flights')
     })
 }
-
 function show(req, res) {
   Flight.findById(req.params.id)
     .populate('meals')
@@ -66,8 +63,6 @@ function deleteFlight(req, res) {
       res.redirect("/")
     })
 }
-
-
 function edit(req, res) {
   Flight.findById(req.params.id)
     .then(flight => {
@@ -81,7 +76,6 @@ function edit(req, res) {
       res.redirect("/")
     })
 }
-
 function update(req, res) {
   Flight.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then(flight => {
@@ -92,7 +86,6 @@ function update(req, res) {
       res.redirect("/")
     })
 }
-
 function createTicket(req, res) {
   Flight.findById(req.params.id)
     .then(flight => {
@@ -111,7 +104,6 @@ function createTicket(req, res) {
       res.redirect('/')
     })
 }
-
 function addToMenu(req, res) {
   Flight.findById(req.params.id)
     .then(flight => {

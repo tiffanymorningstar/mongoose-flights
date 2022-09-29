@@ -1,7 +1,6 @@
 <%- include('../partials/html-head') %>
   <link rel="stylesheet" href="/stylesheets/flights/index.css" />
   <%- include('../partials/nav') %>
-
     <main>
       <h1>Flight List</h1>
       <table>
@@ -31,13 +30,11 @@
                     <%= flight.departs %>
                   </td>
                   <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
-
                   <td>
                     <form action="/flights/<%= flight._id %>?_method=DELETE" method="POST">
                       <button>X</button>
                     </form>
                   </td>
-
                 </tr>
                 <%# finish the ternary expression to display 'Yes' or 'Nope' %>
 
@@ -47,5 +44,4 @@
         </tbody>
       </table>
     </main>
-
     <%- include('../partials/footer') %>
