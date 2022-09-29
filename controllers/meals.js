@@ -1,6 +1,17 @@
 import { Meal } from "../models/meal.js"
 
 
+function create(req, res) {
+  Meal.create(req.body)
+  .then(meal => {
+    res.redirect('/meals/new')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/meals/new')
+  })
+}
+
 function newMeal(req, res) {
   Meal.find({})
   .then(meals => {
@@ -15,5 +26,6 @@ function newMeal(req, res) {
   })}
 
 export {
-  newMeal as new
+  newMeal as new,
+  create,
 }

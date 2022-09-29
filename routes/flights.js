@@ -11,6 +11,9 @@ router.get('/new', flightsCtrl.new)
 
 router.post('/', flightsCtrl.create)
 
+// POST /movies/:id/reviews
+router.post('/:id/tickets', flightsCtrl.createTicket)
+
 router.get('/:id', flightsCtrl.show)
 
 // localhost:3000/movies/:id/edit
